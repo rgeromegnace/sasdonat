@@ -4,24 +4,24 @@
     <t t-name="SaveDraftButton">
         <div class="control-button js_save_draft_order">
             <li class="fa fa-file-text"></li>
-            POS Draft Order
+            Commande brouillon
         </div>
     </t>
 
     <t t-name="ShowOrderList">
         <div class="control-button show_order_list">
             <i class="fa fa-list" aria-hidden="true"></i>
-            POS Orders
+            Commandes
         </div>
     </t>
 
     <t t-name="SaleOrderButton">
         <div class='control-button js_saleorder'>
             <t t-if="widget.pos.config.sale_order_operations == 'confirm' and !widget.pos.get_order().get_edit_quotation()">
-                <i class='fa fa-tag' /> Create SO
+                <i class='fa fa-tag' /> Créer une commande
             </t>
             <t t-if="widget.pos.config.sale_order_operations == 'draft' and !widget.pos.get_order().get_edit_quotation()">
-                <i class='fa fa-tag' /> SO Quotation
+                <i class='fa fa-tag' /> Devis
             </t>
         </div>
     </t>
@@ -34,13 +34,13 @@
 
     <t t-name="ViewInvoicesButton">
         <div class='control-button js_saleinvoiceList'>
-            <i class="fa fa-sticky-note"></i> SO Invoices
+            <i class="fa fa-sticky-note"></i> Factures
         </div>
     </t>
 
     <t t-name="EditQuotationButton">
         <div class='control-button js_edit_quotation' style="display:none;">
-            <i class='fa fa-tag' /> Update Quotation
+            <i class='fa fa-tag' /> Mettre à jour le devis
         </div>
     </t>
 
@@ -52,14 +52,14 @@
                     <span style="font-size:18px">
                         <t t-if="!widget.options.edit">
                             <t t-if="widget.pos.config.sale_order_operations == 'confirm'">
-                                Sales Order Created:
+                                Commandes créées:
                             </t>
                             <t t-if="widget.pos.config.sale_order_operations == 'draft'">
-                                Quotation Created:
+                                Devis créé:
                             </t>
                         </t>
                         <t t-if="widget.options.edit">
-                            Quotation Updated:
+                            Devis mis à jour:
                         </t>
                     </span>
                     <a style= "color:blue;" target="_blank" t-att-href="widget.options.url"><t t-esc="widget.options.name"/></a>
@@ -78,7 +78,7 @@
              <t t-if="!widget.pos.get_order().get_invoice_id()">
                 <t t-if="widget.pos.config.sale_order_operations == 'paid' or widget.pos.get_order().get_order_id()">
                     <span class='button create_so' id= "btn_so" style="right:0px;margin-right: 160px;">
-                        Validate SO
+                        Valider la commande
                         <i class='fa fa-angle-double-right'></i>
                     </span>
                 </t>
@@ -148,7 +148,7 @@
                             <t t-esc="orderline.get_product().display_name"/>
                              <t t-if="orderline.get_discount() > 0">
                                 <div class="pos-disc-font">
-                                    With a <t t-esc="orderline.get_discount()"/>% discount
+                                    Avec une <t t-esc="orderline.get_discount()"/>% discount
                                 </div>
                             </t>
                         </td>
@@ -194,14 +194,14 @@
                         <line><left><t t-esc='line.product_name_wrapped[0]' /></left></line>
                         <t t-call="XmlReceiptWrappedProductNameLines"/>
                         <t t-if='line.discount !== 0'>
-                            <line indent='1'><left>Discount: <t t-esc='line.discount' />%</left></line>
+                            <line indent='1'><left>Remise: <t t-esc='line.discount' />%</left></line>
                         </t>
                         <line indent='1'>
                             <left>
                                 <value t-att-value-decimals='pos.dp["Product Unit of Measure"]' value-autoint='on'>
                                     <t t-esc='line.quantity' />
                                 </value>
-                                <t t-if='line.unit_name !== "Unit(s)"'>
+                                <t t-if='line.unit_name !== "Unité(s)"'>
                                     <t t-esc='line.unit_name' />
                                 </t>
                                 x
@@ -300,10 +300,10 @@
                                         <table class='sale-order-list'>
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Customer</th>
-                                                    <th>Order Date</th>
-                                                    <th>Amount Due</th>
+                                                    <th>Nom</th>
+                                                    <th>Client</th>
+                                                    <th>Date de commande</th>
+                                                    <th>Montant dû</th>
                                                     <th>Total</th>
                                                     <th class="quotation_edit_button">Edit</th>
                                                     <th class="pay_button">Pay</th>
@@ -405,14 +405,14 @@
                                         <table class='order-invoice-list'>
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Customer</th>
-                                                    <th>Invoice Date</th>
-                                                    <th>Due Date</th>
-                                                    <th>Amount Due</th>
+                                                    <th>Nom</th>
+                                                    <th>Client</th>
+                                                    <th>Date de facture</th>
+                                                    <th>Date dûe</th>
+                                                    <th>Montant dû</th>
                                                     <th>Total</th>
-                                                    <th>Pay</th>
-                                                    <th>Print</th>
+                                                    <th>Payée</th>
+                                                    <th>Imprimée</th>
                                                 </tr>
                                             </thead>
                                             <tbody  class='invoice-list-contents'>
@@ -470,15 +470,15 @@
                                         <table class='order-list'>
                                             <thead>
                                                 <tr>
-                                                    <th>Order Ref</th>
-                                                    <th>Receipt Ref</th>
-                                                    <th>Customer</th>
-                                                    <th>Order Date</th>
+                                                    <th>Référence de commande</th>
+                                                    <th>Référence de ticket</th>
+                                                    <th>Client</th>
+                                                    <th>Date de commande</th>
                                                     <th>Total</th>
-                                                    <th>Receipt</th>
-                                                    <th>Products</th>
-                                                    <th>Edit</th>
-                                                    <th>Reorder</th>
+                                                    <th>Ticket</th>
+                                                    <th>Produit</th>
+                                                    <th>Edité</th>
+                                                    <th>Recommandé</th>
                                                 </tr>
                                             </thead>
                                             <tbody  class='order-list-contents'>
@@ -568,7 +568,7 @@
     <t t-name="SaleOrderPopup">
         <div class="modal-dialog">
             <div class="popup popup-textinput popup-sale-order">
-                <p class="title">Sale Order</p>
+                <p class="title">Commande</p>
                 <div class="date_box">
                 	<div style="float: left;width: 50%;">
                 		<span>Order Date </span>
@@ -642,7 +642,7 @@
                             <div class="choices_content">
                                 <div class="invoice_content choice-2">
                                     <input type="checkbox" class="invoice_diff_address" />
-                                    <span>Invoice to Different Address</span>
+                                    <span>Facturer à une adresse différente</span>
                                 </div>
                                 <div class="invoice_create_contact">
                                     <table>
@@ -702,9 +702,9 @@
     <t t-name="SOConfirmPopup">
         <div class="modal-dialog">
             <div class="popup">
-                <p class="title">Sale Order Confirmation</p>
+                <p class="title">Confirmation de commande</p>
                 <div class="popup_content">
-                    <p>System have to make delivery order done before creating invoice due to following products of you cart.</p>
+                    <p>Le système a besoin que les bons de livraisons soit validés avant de créer les factures suite aux articles suivant de votre panier.</p>
                     <t t-if="widget.deliver_products">
                         <ul>
                         <t t-foreach="widget.deliver_products" t-as="line">
@@ -712,7 +712,7 @@
                         </t>
                         </ul>
                     </t>
-                    Press continue to proceed.
+                    Cliquer sur confirmer pour continuer.
                 </div>
                 <div class="footer">
                     <div class="button confirm">
@@ -743,8 +743,8 @@
                     <table class="popup-product-return-list table">
                          <thead>
                            <tr>
-                               <th>Product</th>
-                               <th>Quantity</th>
+                               <th>Produit</th>
+                               <th>Quantité</th>
                                <th/>
                            </tr>
                        </thead>
@@ -801,18 +801,18 @@
                    <div class="btn button cancel">
                         <i class="fa fa-times"></i>
                    </div>
-                    <p class="title">Products</p>
+                    <p class="title">Produits</p>
                 </div>
                 <div style="height: 276px;overflow: auto;">
                     <table class="popup-product-list table">
                          <thead>
                            <tr>
                                <th>#</th>
-                               <th>Product</th>
-                               <th>Quantity</th>
-                               <th>Price</th>
-                               <th>Discount</th>
-                               <th>Subtotal</th>
+                               <th>Produit</th>
+                               <th>Quantité</th>
+                               <th>Prix</th>
+                               <th>Remise</th>
+                               <th>Sous-total</th>
                            </tr>
                        </thead>
                        <tbody class="popup-product-list-contents">

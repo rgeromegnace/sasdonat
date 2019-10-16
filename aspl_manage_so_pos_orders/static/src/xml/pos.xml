@@ -28,7 +28,7 @@
 
     <t t-name="ViewSaleOrdersButton">
         <div class='control-button js_saleordersList'>
-            <i class="fa fa-list" aria-hidden="true"></i> Sale Orders
+            <i class="fa fa-list" aria-hidden="true"></i>Commandes
         </div>
     </t>
 
@@ -261,23 +261,23 @@
                 <section class="top-content">
                     <span class='button back'>
                         <i class='fa fa-angle-double-left'></i>
-                        Cancel
+                        Annuler
                     </span>
                     <span class='button paid'>
                         <i class='fa fa-credit-card'></i>
-                        Done
+                        Fait
                     </span>
                     <span class='button draft'>
                         <i class='fa fa-file-text'></i>
-                        Quotations
+                        Devis
                     </span>
                     <span class='button confirm'>
                         <i class='fa fa-file-text'></i>
-                        Confirm
+                        Confirmé
                     </span>
                     <span class='button my_orders'>
                         <i class='fa fa-file-text'></i>
-                        My Orders
+                        Mes Commandes
                     </span>
                    <span class="date-filter">
                         <input readonly="readonly" placeholder="yyyy-mm-dd" type="text" id="sale-datepicker" />

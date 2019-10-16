@@ -581,8 +581,8 @@
                 </div>
                 <div id="tabs-container" style="padding: 5px;">
                     <ul class="tabs-menu">
-                        <li class="current"><a href="#tab-1">Shipping Address</a></li>
-                        <li><a href="#tab-2">Invoice Address</a></li>
+                        <li class="current"><a href="#tab-1">Adresse de livraison</a></li>
+                        <li><a href="#tab-2">Adresse de facturation</a></li>
                         <li class="note_tab"><a href="#tab-3">Note</a></li>
                         <li class="signature_tab"><a href="#tab-4">Signature</a></li>
                     </ul>
@@ -590,7 +590,7 @@
                     <div class="tab">
                         <div id="tab-1" class="tab-content">
                             <div class="choices_content">
-                                <span class="shipping_content">Shipping Address</span>
+                                <span class="shipping_content">Adresse de livraison</span>
                                 <select class="shipping_contact_selection">
                                     <option value="0">Select Address</option>
                                     <t t-if="widget.contacts">
@@ -603,7 +603,7 @@
                             <div class="choices_content">
                                 <div class="shipping_content choice-2">
                                     <input type="checkbox" class="ship_diff_address" name="ship_diff_address" />
-                                    <span>Ship to Different Address</span>
+                                    <span>Livrer à une adresse différente</span>
                                 </div>
                                 <div class="ship_create_contact">
                                     <table>
@@ -629,7 +629,7 @@
                         </div>
                         <div id="tab-2" class="tab-content">
                             <div class="choices_content">
-                                <span class="invoice_content">Invoice Address</span>
+                                <span class="invoice_content">Adresse de facturation</span>
                                 <select class="invoicing_contact_selection">
                                     <option>Select Address</option>
                                     <t t-if="widget.contacts">
